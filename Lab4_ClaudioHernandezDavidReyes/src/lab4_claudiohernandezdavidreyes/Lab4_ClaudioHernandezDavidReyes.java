@@ -76,9 +76,9 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     String Color = v.next();
                     System.out.println("su equipo debe llevar 3 pateadores y 2 tiradores");
                     char resp1 = 's';
-                     int acum1=0,acum2=0,acum3=0,acum4=0;
+                    int acum1 = 0, acum2 = 0, acum3 = 0, acum4 = 0;
                     while (resp1 == 's' || resp1 == 'S') {
-                        
+
                         System.out.println("ingrese nombre de jugador");
                         String nombre = v.next();
 
@@ -99,13 +99,13 @@ public class Lab4_ClaudioHernandezDavidReyes {
                         int ncamisa = v.nextInt();
                         System.out.println("indique que tipo  de jugador es \n1.pateador\n2.tirador");
                         int respTipo = v.nextInt();
-                        if (acum1==3) {
+                        if (acum1 == 3) {
                             System.out.println("ya no puede ingresar mas pateadores");
-                            respTipo=2;
-                        }else if(acum2==2){
+                            respTipo = 2;
+                        } else if (acum2 == 2) {
                             System.out.println("Ya no puede ingresar mas tiradores");
-                            respTipo=1;
-                        }else if (acum1==3&&acum2==2) {
+                            respTipo = 1;
+                        } else if (acum1 == 3 && acum2 == 2) {
                             break;
                         }//valida cuantos pateadores y tiradores
 
@@ -117,9 +117,9 @@ public class Lab4_ClaudioHernandezDavidReyes {
                             int habilidadPateadora = v.nextInt();
                             System.out.println("ingrese habilidad regateadora:");
                             int habilidadRegateadora = v.nextInt();
-                            
+
                             jugadores1.add(new pateadores(habilidadPateadora, fuerza, habilidadRegateadora, nombre, apodo, ncamisa, efut, ebf, jf, stars));
-                            acum1+=1;
+                            acum1 += 1;
                         } else if (respTipo == 2) {
                             System.out.println("====================datos de jugador tipo tirador=============");
                             System.out.println("ingrese tiro de 3(1-100):");
@@ -129,7 +129,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                             System.out.println("ingrese habilidad de manejo de balon(1-100):");
                             int HB = v.nextInt();
                             //  jugadores1.add(new Tiradores());
-                            acum2+=1;
+                            acum2 += 1;
                         }
                         if (jugadores1.size() != 5) {
                             resp1 = 's';
@@ -226,49 +226,124 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     break;
                 }//case de eliminar
                 case 4: {
-                    int pases = 5;
+                    int pases1 = 5;
+                    int puntos = 0;
+                    int puntos2 = 0;
+                    int pases2 = 5;
+                    Object j1 = 0;
+                    Object j2 = 0;
+                    int jugador1Elegido;
+                    int jugador2Elegido;
                     System.out.println("jugador 1 ingrese la posicion del jugador que tendra el balon");
-                    
+
                     for (int i = 0; i < equipo1.get(0).getJugadores().size(); i++) {
-                        System.out.println(i+"-"+equipo1.get(0).getJugadores().get(i).getNombre());
+                        System.out.println(i + "-" + equipo1.get(0).getJugadores().get(i).getNombre());
                     }
-                    int jugadorElegido = v.nextInt();
-                    String j1;
-                    if ( equipo1.get(0).getJugadores().size()>jugadorElegido) {
-                        j1=equipo1.get(0).getJugadores().get(jugadorElegido).getNombre();
-                    }else{
+                    jugador1Elegido = v.nextInt();
+                    if (equipo1.get(0).getJugadores().size() > jugador1Elegido) {
+                        j1 = equipo1.get(0).getJugadores().get(jugador1Elegido);
+                    } else {
                         System.out.println("no jugador en esa posicion");
-                    
+
                     }
-                    System.out.println("indique que desea hacer\n1.Atacar\n2.pase");
-                     int j1Accion =  v.nextInt();
-                    if (j1Accion==1) {
-                        if () {
-                            
-                        }
-                    }else if (j1Accion==2) {
-                        
-                    }
+                    while (puntos != 11 && puntos2 != 11) {
+                        while (pases1 != 6) {
+
+                            System.out.println("indique que desea hacer\n1.Atacar\n2.pase");
+                            int j1Accion = v.nextInt();
+                            if (j1Accion == 1) {
+                                if (j1 instanceof pateadores) {//if para saber que tipo de jugador es
+                                    if (((pateadores) j1).probabilidad()) {
+                                        System.out.println("Anoto");
+                                        puntos++;
+                                    } else {
+                                        System.out.println("no anoto");
+                                        puntos = puntos;
+
+                                    }
+                                } else if (j1 instanceof Tiradores) {
+
+                                }
+                            } else if (j1Accion == 2) {
+                                System.out.println("jugador 1 ingrese la posicion del jugador al cual  hacer pase");
+
+                                for (int i = 0; i < equipo1.get(0).getJugadores().size(); i++) {
+                                    System.out.println(i + "-" + equipo1.get(0).getJugadores().get(i).getNombre());
+                                }
+                                jugador1Elegido = v.nextInt();
+                                if (equipo1.get(0).getJugadores().size() > jugador1Elegido) {
+                                    j1 = equipo1.get(0).getJugadores().get(jugador1Elegido);
+
+                                }
+
+                            }//else de pase
+
+                        }//pases del jugador 1
+
+                        while (pases2 != 6) {//=========jugador 2
+
+                            System.out.println("jugador 2 ingrese la posicion del jugador que tendra el balon");
+
+                            for (int i = 0; i < equipo2.get(0).getJugadores().size(); i++) {
+                                System.out.println(i + "-" + equipo1.get(0).getJugadores().get(i).getNombre());
+                            }
+                            jugador2Elegido = v.nextInt();
+                            if (equipo1.get(0).getJugadores().size() > jugador2Elegido) {
+                                j1 = equipo1.get(0).getJugadores().get(jugador2Elegido);
+                            } else {
+                                System.out.println("no jugador en esa posicion");
+
+                            }
+                            System.out.println("indique que desea hacer\n1.Atacar\n2.pase");
+                            int j2Accion = v.nextInt();
+                            if (j2Accion == 1) {
+                                if (j2 instanceof pateadores) {//if para saber que tipo de jugador es
+                                    if (((pateadores) j2).probabilidad()) {
+                                        System.out.println("Anoto");
+                                        puntos++;
+                                    } else {
+                                        System.out.println("no anoto");
+                                        puntos = puntos;
+
+                                    }
+                                } else if (j2 instanceof Tiradores) {
+
+                                }
+                            } else if (j2Accion == 2) {
+                                System.out.println("jugador 2 ingrese la posicion del jugador al cual  hacer pase");
+
+                                for (int i = 0; i < equipo2.get(0).getJugadores().size(); i++) {
+                                    System.out.println(i + "-" + equipo2.get(0).getJugadores().get(i).getNombre());
+                                }
+                                jugador1Elegido = v.nextInt();
+                                if (equipo2.get(0).getJugadores().size() > jugador2Elegido) {
+                                    j2 = equipo1.get(0).getJugadores().get(jugador2Elegido);
+
+                                }
+
+                            }//else de pase
+
+                        }//pases del jugador 2
+
+                    }//puntos
+
                     break;
                 }//case de salir
-                case 5:{
+                case 5: {
                     System.out.println(equipo1);
                     System.out.println(equipo2);
-                
-                break;
+
+                    break;
                 }
-                case 6:{
-                 System.out.println("Saliendo.....");
+                case 6: {
+                    System.out.println("Saliendo.....");
                     System.out.println("Salida exitosa, Adios");
-                break;
+                    break;
                 }
 
             }//switch de menu principal
 
         }//while de menu copiar hasta aca
     }//main
-
-   
-    
 
 }//clase
