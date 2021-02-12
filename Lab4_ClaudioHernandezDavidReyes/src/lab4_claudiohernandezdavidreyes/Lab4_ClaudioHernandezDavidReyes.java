@@ -318,7 +318,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                                 jugador1Elegido = v.nextInt();
                                 if (equipo2.get(0).getJugadores().size() > jugador2Elegido) {
                                     j2 = equipo1.get(0).getJugadores().get(jugador2Elegido);
-
+                                    
                                 }
 
                             }//else de pase
