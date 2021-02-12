@@ -6,6 +6,7 @@ protected String apodo;
 protected int ncamisa;
 protected String efut;
 protected String ebf;
+protected int puntos;
 protected String jf;
 double stars;
 
@@ -41,6 +42,15 @@ double stars;
     protected int getNcamisa() {
         return ncamisa;
     }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+    
 
     protected void setNcamisa(int ncamisa) {
         this.ncamisa = ncamisa;

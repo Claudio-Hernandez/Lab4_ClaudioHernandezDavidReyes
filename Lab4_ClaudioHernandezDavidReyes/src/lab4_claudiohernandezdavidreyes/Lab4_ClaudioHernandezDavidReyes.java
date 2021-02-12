@@ -326,12 +326,12 @@ public class Lab4_ClaudioHernandezDavidReyes {
                         }//pases del jugador 2
 
                     }//puntos
+                    
 
                     break;
                 }//case de salir
                 case 5: {
-                    System.out.println(equipo1);
-                    System.out.println(equipo2);
+                    
 
                     break;
                 }
@@ -345,5 +345,6 @@ public class Lab4_ClaudioHernandezDavidReyes {
 
         }//while de menu copiar hasta aca
     }//main
+    
 
 }//clase
