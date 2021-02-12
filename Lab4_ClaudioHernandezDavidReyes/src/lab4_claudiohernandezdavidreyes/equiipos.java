@@ -29,12 +29,12 @@ public class equiipos {
     private String nombreMacota;
     private String fechaDeCreacion;
     private String color;
-    private ArrayList jugadores ;
+    private ArrayList <Jugadores>jugadores ;
 
     public equiipos() {
     }
 
-    public equiipos(String nombre, String estadio, String pais, String nombreEntrenador, String nombreDueño, String nombreMacota, String fechaDeCreacion, String color, ArrayList jugadores) {
+    public equiipos(String nombre, String estadio, String pais, String nombreEntrenador, String nombreDueño, String nombreMacota, String fechaDeCreacion, String color, ArrayList<Jugadores> jugadores) {
         this.nombre = nombre;
         this.estadio = estadio;
         this.pais = pais;
@@ -110,11 +110,11 @@ public class equiipos {
         this.color = color;
     }
 
-    public ArrayList getJugadores() {
+    public ArrayList<Jugadores> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(ArrayList jugadores) {
+    public void setJugadores(ArrayList<Jugadores> jugadores) {
         this.jugadores = jugadores;
     }
 

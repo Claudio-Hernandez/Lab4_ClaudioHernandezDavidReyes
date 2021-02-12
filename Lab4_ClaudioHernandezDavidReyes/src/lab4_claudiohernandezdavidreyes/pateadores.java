@@ -82,15 +82,12 @@ public class pateadores extends Jugadores {
     int num;
     double pro =  probabilidad();
     SecureRandom c =  new SecureRandom();
-        if (pro==68) {
-            num =  1+ c.nextInt(100);
-            if (num>=1&&num<=68) {
-                anoto =  true;
-            }else if(num>68&&num<=100){
-                anoto = false;
-            
-            }
-            
+         int  c2=1+c.nextInt(100);
+         if (c2>0&&c2<=pro) {
+            anoto =true;
+        }else if(c2> pro&&c2<=100){
+            anoto=false;
+        
         }
         return anoto;
     
