@@ -12,6 +12,7 @@ import java.security.SecureRandom;
  * @author Claudio Hernandez
  */
 public class pateadores extends Jugadores {
+
     /*
     
     pateadores contaran con Habilidad Pateadora (1-100),
@@ -21,12 +22,12 @@ public class pateadores extends Jugadores {
     También podrán pasar la pelota a las manos de un tirador. 
     
     
-    */
+     */
     private int habilidadPateadora;
     private int fuerza;
     private int habilidadRegateadora;
 
-    public pateadores()  {
+    public pateadores() {
         super();
     }
 
@@ -37,15 +38,13 @@ public class pateadores extends Jugadores {
         this.habilidadRegateadora = habilidadRegateadora;
     }
 
-    
-
     public int getHabilidadPateadora() {
         return habilidadPateadora;
     }
 
     public void setHabilidadPateadora(int habilidadPateadora) {
-        if (habilidadPateadora>0&&habilidadPateadora<=100) {
-                    this.habilidadPateadora = habilidadPateadora;
+        if (habilidadPateadora > 0 && habilidadPateadora <= 100) {
+            this.habilidadPateadora = habilidadPateadora;
 
         }
     }
@@ -55,8 +54,8 @@ public class pateadores extends Jugadores {
     }
 
     public void setFuerza(int fuerza) {
-        if (fuerza>0&&fuerza<=100) {
-                    this.fuerza = fuerza;
+        if (fuerza > 0 && fuerza <= 100) {
+            this.fuerza = fuerza;
 
         }
     }
@@ -66,37 +65,30 @@ public class pateadores extends Jugadores {
     }
 
     public void setHabilidadRegateadora(int habilidadRegateadora) {
-        if (habilidadRegateadora>0&&habilidadRegateadora<=100) {
-                    this.habilidadRegateadora = habilidadRegateadora;
+        if (habilidadRegateadora > 0 && habilidadRegateadora <= 100) {
+            this.habilidadRegateadora = habilidadRegateadora;
 
         }
     }
-    public double probabilidad(){
-        //% de Probabilidad de Anotar= (HP+F+HR)*0.65 * Núm. Estrellas/10
-        double probabilidad = (habilidadPateadora+fuerza+habilidadRegateadora)*0.65*(stars/10);
-        return probabilidad;
-    
-    }
-    public boolean anotar (){
-    boolean anoto =  false;
-    int num;
-    double pro =  probabilidad();
-    SecureRandom c =  new SecureRandom();
-         int  c2=1+c.nextInt(100);
-         if (c2>0&&c2<=pro) {
-            anoto =true;
-        }else if(c2> pro&&c2<=100){
-            anoto=false;
-        
+
+    public boolean probabilidad() {
+        double probabilidad = (habilidadPateadora + fuerza + habilidadRegateadora) * 0.65 * (stars / 10);
+        boolean anoto = false;
+        SecureRandom c = new SecureRandom();
+        int c2 = 1 + c.nextInt(100);
+        if (c2 > 0 && c2 <= probabilidad) {
+            anoto = true;
+        } else if (c2 > probabilidad && c2 <= 100) {
+            anoto = false;
+
         }
         return anoto;
-    
+
     }
 
     @Override
     public String toString() {
         return "pateadores{" + "habilidadPateadora=" + habilidadPateadora + ", fuerza=" + fuerza + ", habilidadRegateadora=" + habilidadRegateadora + '}';
     }
-    
-    
+
 }

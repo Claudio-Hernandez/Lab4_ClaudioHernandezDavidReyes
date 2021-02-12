@@ -51,6 +51,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     
                     
                      */
+                    //===========================equipo 1============================================
                     System.out.println("ingrese nombre");
                     String nombreEquipo = v.next();
                     System.out.println("ingrese nombre de estadio");
@@ -138,7 +139,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                         equipo1.add(new equiipos(nombreEquipo, nombreDeEstadio, pais, nombreDeEntrenador, nombreDelDueño, nombreDeMascota, fechaCreacion, Color, jugadores1));
 
                     }//while de jugadores equipo1
-
+                    //===========================================equipo2=========================================
                     System.out.println("ingrese nombre");
                     String nombreEquipo2 = v.next();
                     System.out.println("ingrese nombre de estadio");
@@ -225,7 +226,29 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     break;
                 }//case de eliminar
                 case 4: {
+                    int pases = 5;
+                    System.out.println("jugador 1 ingrese la posicion del jugador que tendra el balon");
                     
+                    for (int i = 0; i < equipo1.get(0).getJugadores().size(); i++) {
+                        System.out.println(i+"-"+equipo1.get(0).getJugadores().get(i).getNombre());
+                    }
+                    int jugadorElegido = v.nextInt();
+                    String j1;
+                    if ( equipo1.get(0).getJugadores().size()>jugadorElegido) {
+                        j1=equipo1.get(0).getJugadores().get(jugadorElegido).getNombre();
+                    }else{
+                        System.out.println("no jugador en esa posicion");
+                    
+                    }
+                    System.out.println("indique que desea hacer\n1.Atacar\n2.pase");
+                     int j1Accion =  v.nextInt();
+                    if (j1Accion==1) {
+                        if () {
+                            
+                        }
+                    }else if (j1Accion==2) {
+                        
+                    }
                     break;
                 }//case de salir
                 case 5:{
