@@ -1,15 +1,15 @@
 package lab4_claudiohernandezdavidreyes;
 
 public class Jugadores {
-String nombre;
-String apodo;
-int ncamisa;
-String efut;
-String ebf;
-String jf;
+protected String nombre;
+protected String apodo;
+protected int ncamisa;
+protected String efut;
+protected String ebf;
+protected String jf;
 double stars;
 
-    public Jugadores(String nombre, String apodo, int ncamisa, String efut, String ebf, String jf, double stars) {
+    protected Jugadores(String nombre, String apodo, int ncamisa, String efut, String ebf, String jf, double stars) {
         this.nombre = nombre;
         this.apodo = apodo;
         this.ncamisa = ncamisa;
@@ -19,67 +19,67 @@ double stars;
         this.stars = stars;
     }
 
-    public Jugadores() {
+    protected Jugadores() {
     }
 
-    public String getNombre() {
+    protected String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    protected void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getApodo() {
+    protected String getApodo() {
         return apodo;
     }
 
-    public void setApodo(String apodo) {
+    protected void setApodo(String apodo) {
         this.apodo = apodo;
     }
 
-    public int getNcamisa() {
+    protected int getNcamisa() {
         return ncamisa;
     }
 
-    public void setNcamisa(int ncamisa) {
+    protected void setNcamisa(int ncamisa) {
         this.ncamisa = ncamisa;
     }
 
-    public String getEfut() {
+    protected String getEfut() {
         return efut;
     }
 
-    public void setEfut(String efut) {
+    protected void setEfut(String efut) {
         this.efut = efut;
     }
 
-    public String getEbf() {
+    protected String getEbf() {
         return ebf;
     }
 
-    public void setEbf(String ebf) {
+    protected void setEbf(String ebf) {
         this.ebf = ebf;
     }
 
-    public String getJf() {
+    protected String getJf() {
         return jf;
     }
 
-    public void setJf(String jf) {
+    protected void setJf(String jf) {
         this.jf = jf;
     }
 
-    public double getStars() {
+    protected double getStars() {
         return stars;
     }
 
-    public void setStars(double stars) {
+    protected void setStars(double stars) {
         this.stars = stars;
     }
 
     @Override
-    public String toString() {
+    protected String toString() {
         return "Jugadores{" + "nombre=" + nombre + ", apodo=" + apodo + ", ncamisa=" + ncamisa + ", efut=" + efut + ", ebf=" + ebf + ", jf=" + jf + ", stars=" + stars + '}';
     }
 
