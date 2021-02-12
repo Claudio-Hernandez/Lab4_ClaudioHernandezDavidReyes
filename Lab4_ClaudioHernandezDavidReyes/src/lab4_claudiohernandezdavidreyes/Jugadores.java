@@ -79,7 +79,7 @@ double stars;
     }
 
     @Override
-    protected String toString() {
+    public String toString() {
         return "Jugadores{" + "nombre=" + nombre + ", apodo=" + apodo + ", ncamisa=" + ncamisa + ", efut=" + efut + ", ebf=" + ebf + ", jf=" + jf + ", stars=" + stars + '}';
     }
 
