@@ -72,7 +72,7 @@ public class pateadores extends Jugadores {
     }
 
     @Override
-    public boolean probabilidad() {
+    public boolean probabilidad(int x) {
         double probabilidad = (habilidadPateadora + fuerza + habilidadRegateadora) * 0.65 * (stars / 10);
         boolean anoto = false;
         SecureRandom c = new SecureRandom();

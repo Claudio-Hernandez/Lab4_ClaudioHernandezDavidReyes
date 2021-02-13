@@ -25,7 +25,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
         Scanner v = new Scanner(System.in);
 
         int ejer = 0;
-        while (ejer != 5) {
+        while (ejer != 6) {
             ArrayList<Jugadores> jugadores1 = new ArrayList();
             ArrayList<Jugadores> jugadores2 = new ArrayList();
 
@@ -34,8 +34,9 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     + "2.Modificar\n"
                     + "3.Eliminar\n"
                     + "4.Simulacion\n"
-                    + "5.Salir\n"
-            );
+                    + "5.reporte\n"
+                    + "6.Salir");
+            
 
             ejer = v.nextInt();
             switch (ejer) {
@@ -223,9 +224,20 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     break;
                 }//case de modificar
                 case 3: {
+                    for (int i = 0; i < equipos.size(); i++) {
+                        System.out.println(i + equipos.get(i).getNombre());
+                    }
+                    System.out.println("ingrese la posicion del equipo que quiere eliminar:");
+                    int resp = v.nextInt();
+                    if (equipos.size() > resp) {
+                        equipos.remove(resp);
+                        System.out.println("equipo eliminado");
+                    } else {
+                        System.out.println("equipo no existente o su lista esta vacia");
+                    }
                     break;
                 }//case de eliminar
-                case 4: {
+                case 4: {//case de simulacion
                     for (int i = 0; i < equipos.size(); i++) {
                         System.out.println(equipos.get(i).getNombre());
                     }
@@ -279,7 +291,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                             int j1Accion = v.nextInt();
                             if (j1Accion == 1) {
                                 if (j1 instanceof pateadores) {//if para saber que tipo de jugador es
-                                    if (((pateadores) j1).probabilidad()) {
+                                    if (((pateadores) j1).probabilidad(0)) {
                                         System.out.println("Anoto");
 
                                         ((pateadores) j1).puntos++;
@@ -290,7 +302,12 @@ public class Lab4_ClaudioHernandezDavidReyes {
 
                                     }
                                 } else if (j1 instanceof Tiradores) {
-
+                                    System.out.println("tiro de cuanto de 2 o de 3");
+                                    int x = v.nextInt();
+                                    if (((Tiradores) j1).probabilidad(x)) {
+                                        System.out.println("anoto");
+                                        ((Tiradores) j1).puntos++;
+                                    }
                                 }
                             } else if (j1Accion == 2) {
                                 System.out.println("jugador 1 ingrese la posicion del jugador al cual  hacer pase");
@@ -326,7 +343,7 @@ public class Lab4_ClaudioHernandezDavidReyes {
                             int j2Accion = v.nextInt();
                             if (j2Accion == 1) {
                                 if (j2 instanceof pateadores) {//if para saber que tipo de jugador es
-                                    if (((pateadores) j2).probabilidad()) {
+                                    if (((pateadores) j2).probabilidad(0)) {
                                         System.out.println("Anoto");
                                         ((pateadores) j2).puntos++;
                                         puntos++;
@@ -336,9 +353,15 @@ public class Lab4_ClaudioHernandezDavidReyes {
 
                                     }
                                 } else if (j2 instanceof Tiradores) {
+                                    System.out.println("tiro de cuanto de 2 o de 3");
+                                    int x = v.nextInt();
+                                    if (((Tiradores) j2).probabilidad(x)) {
+                                        System.out.println("anoto");
+                                        ((Tiradores) j2).puntos++;
+                                    }
 
                                 }
-                            } else if (j2Accion == 2) {
+                            } else if (j2Accion == 2) {//else para pase
                                 System.out.println("jugador 2 ingrese la posicion del jugador al cual  hacer pase");
 
                                 for (int i = 0; i < equipos.get(elec2).getJugadores().size(); i++) {
@@ -355,27 +378,33 @@ public class Lab4_ClaudioHernandezDavidReyes {
                         }//pases del jugador 2
 
                     }//puntos
-                    imprimir(elec1,elec2);
+                    imprimir(elec1, elec2);
 
                     break;
                 }//case de salir
                 case 5: {
+                                        System.out.println(equipos);
+
+                    break;
+                }
+                case  6:{
                     System.out.println("Saliendo.....");
                     System.out.println("Salida exitosa, Adios");
                     break;
                 }
+                
 
             }//switch de menu principal
 
         }//while de menu copiar hasta aca
     }//main
 
-    public static String imprimir(int j1,int j2) {
-        int [] puntos =  new int[equipos.get(j1).getJugadores().size()];
-        int [] puntos2 =  new int[equipos.get(j2).getJugadores().size()];
-        int  aux;
+    public static String imprimir(int j1, int j2) {
+        int[] puntos = new int[equipos.get(j1).getJugadores().size()];
+        int[] puntos2 = new int[equipos.get(j2).getJugadores().size()];
+        int aux;
         for (int i = 0; i < puntos.length - 1; i++) {
-            for ( int j = 0; j < puntos.length - i - 1; j++) {
+            for (int j = 0; j < puntos.length - i - 1; j++) {
                 if (puntos[j + 1] < puntos[j]) {
                     aux = puntos[j + 1];
                     puntos[j + 1] = puntos[j];
@@ -383,10 +412,10 @@ public class Lab4_ClaudioHernandezDavidReyes {
                 }
             }
         }
-                int  aux2;
+        int aux2;
 
-         for (int i = 0; i < puntos2.length - 1; i++) {
-            for ( int j = 0; j < puntos2.length - i - 1; j++) {
+        for (int i = 0; i < puntos2.length - 1; i++) {
+            for (int j = 0; j < puntos2.length - i - 1; j++) {
                 if (puntos2[j + 1] < puntos2[j]) {
                     aux2 = puntos2[j + 1];
                     puntos2[j + 1] = puntos2[j];
@@ -394,28 +423,34 @@ public class Lab4_ClaudioHernandezDavidReyes {
                 }
             }
         }
-         String acum1 = "==========Equipo 1======\n ";
-         for (int i = 0; i < equipos.get(j1).getJugadores().size(); i++) {
-             if ( equipos.get(j1).getJugadores().get(i).getPuntos()==puntos[i]) {
-                 if (equipos.get(j1).getJugadores().get(i) instanceof pateadores){
-                                      acum1+= "Nombre:" + equipos.get(j1).getJugadores().get(i).nombre +"  Puntos: "+ puntos[i] +"Tipo d jugador :" +"pateador"+"\n";
+        String acum1 = "==========Equipo 1======\n ";
+        for (int i = 0; i < equipos.get(j1).getJugadores().size(); i++) {
+            if (equipos.get(j1).getJugadores().get(i).getPuntos() == puntos[i]) {
+                if (equipos.get(j1).getJugadores().get(i) instanceof pateadores) {
+                    acum1 += "Nombre:" + equipos.get(j1).getJugadores().get(i).nombre + "  Puntos: " + puntos[i] + "Tipo d jugador :" + "pateador" + "\n";
 
-                 }else{
-                                                       acum1+= "Nombre:" + equipos.get(j1).getJugadores().get(i).nombre +"  Puntos: "+ puntos[i] +"Tipo d jugador :" +"tirador"+"\n";
+                } else {
+                    acum1 += "Nombre:" + equipos.get(j1).getJugadores().get(i).nombre + "  Puntos: " + puntos[i] + "Tipo d jugador : " + "tirador" + "\n";
 
-                 
-                 }
-             }
-            
+                }
+            }
+
         }
-         String acum2 = "==========equipo 2==========\n";
-         for (int i = 0; i < equipos.get(j1).getJugadores().size(); i++) {
-             if ( equipos.get(j1).getJugadores().get(i).getPuntos()==puntos[i]) {
-                 acum2 += "Nombre:" + equipos.get(j1).getJugadores().get(i).nombre +"  Puntos: "+ puntos[i]+"\n";
-             }
-            
+        String acum2 = "==========equipo 2==========\n";
+        for (int i = 0; i < equipos.get(j2).getJugadores().size(); i++) {
+            if (equipos.get(j2).getJugadores().get(i).getPuntos() == puntos[i]) {
+                if (equipos.get(j1).getJugadores().get(i) instanceof pateadores) {
+
+                    acum2 += "Nombre:" + equipos.get(j2).getJugadores().get(i).nombre + "  Puntos: " + puntos[i] + "Tipo de jugador: " + "pateador" + "\n";
+
+                } else {
+                    acum2 += "Nombre:" + equipos.get(j2).getJugadores().get(i).nombre + "  Puntos: " + puntos[i] + "Tipo de jugador: " + " tirador " + "\n";
+
+                }
+            }
+
         }
-         return acum1 +acum2;
+        return acum1 + acum2;
     }
 
 }//clase

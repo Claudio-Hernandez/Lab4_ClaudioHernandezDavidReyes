@@ -87,7 +87,7 @@ double stars;
     protected void setStars(double stars) {
         this.stars = stars;
     }
-    public boolean probabilidad(){
+    public boolean probabilidad(int x){
     
     return false;
     }
