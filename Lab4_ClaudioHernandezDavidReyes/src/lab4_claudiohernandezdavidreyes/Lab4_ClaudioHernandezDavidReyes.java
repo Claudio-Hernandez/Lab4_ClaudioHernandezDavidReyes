@@ -219,7 +219,18 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     break;
                 }//case de agregar
                 case 2: {
-
+                    System.out.println("Que equipo desea modificar\n1. primer equipo\n2.Segundo equipo");
+                    int ope=v.nextInt();
+                    switch (ope) {
+                        case 1:
+                            
+                            break;
+                        case 2:
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion invalida");
+                    }
                     break;
                 }//case de modificar
                 case 3: {
