@@ -8,7 +8,7 @@ protected String efut;
 protected String ebf;
 protected int puntos;
 protected String jf;
-double stars;
+protected double stars;
 
     protected Jugadores(String nombre, String apodo, int ncamisa, String efut, String ebf, String jf, double stars) {
         this.nombre = nombre;
@@ -17,7 +17,7 @@ double stars;
         this.efut = efut;
         this.ebf = ebf;
         this.jf = jf;
-        this.stars = stars;
+        setStars(stars);
     }
 
     protected Jugadores() {
@@ -85,9 +85,13 @@ double stars;
     }
 
     protected void setStars(double stars) {
+        if(stars <5&&stars>1){
         this.stars = stars;
+        }
     }
-
+    public boolean probabilidad(){
+        return false;
+    }
     @Override
     public String toString() {
         return "Jugadores{" + "nombre=" + nombre + ", apodo=" + apodo + ", ncamisa=" + ncamisa + ", efut=" + efut + ", ebf=" + ebf + ", jf=" + jf + ", stars=" + stars + '}';
