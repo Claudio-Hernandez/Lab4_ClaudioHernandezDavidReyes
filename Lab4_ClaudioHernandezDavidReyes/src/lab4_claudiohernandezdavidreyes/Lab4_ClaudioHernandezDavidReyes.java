@@ -220,8 +220,55 @@ public class Lab4_ClaudioHernandezDavidReyes {
                     break;
                 }//case de agregar
                 case 2: {
-
+                    for (Object O : equipos) {
+                        System.out.println(equipos.indexOf(O) + "-" + O + "\n");
+                    }
+                    System.out.println("Ingrese el equipo que desea modificar");
+                    int ope = v.nextInt();
+                    System.out.println("1.nombre del equipo\n2.nombre del estadio\n3.pais equipo\n4.entrenador\n5.duenio\n6.mascota\n7.fecha");
+                    int opm = v.nextInt();
+                    switch (opm) {
+                        case 1:
+                            System.out.println("ingrese nombre");
+                            String nombreEquipo = v.next();
+                            equipos.get(ope).setNombre(nombreEquipo);
+                            break;
+                        case 2:
+                            System.out.println("ingrese nombre de estadio");
+                            String nombreDeEstadio = v.next();
+                            equipos.get(ope).setEstadio(nombreDeEstadio);
+                            break;
+                        case 3:
+                            System.out.println("ingrese pais del equipo");
+                            String pais = v.next();
+                            equipos.get(ope).setPais(pais);
+                            break;
+                        case 4:
+                            System.out.println("ingrese nombre de entrenador");
+                            String nombreDeEntrenador = v.next();
+                            equipos.get(ope).setNombreEntrenador(nombreDeEntrenador);
+                            break;
+                        case 5:
+                            System.out.println("ingrese nombre del duenio");
+                            String nombreDelDueño = v.next();
+                            equipos.get(ope).setNombreDueño(nombreDelDueño);
+                            break;
+                        case 6:
+                            System.out.println("ingrese nombre de la mascota");
+                            String nombreDeMascota = v.next();
+                            equipos.get(ope).setNombreMacota(nombreDeMascota);
+                            break;
+                        case 7:
+                            System.out.println("ingrese fecha de creacion(dd/MM/yyyy)");
+                            String fechaCreacion = v.next();
+                            equipos.get(ope).setFechaDeCreacion(fechaCreacion);
+                            break;
+                        default:
+                            System.out.println("Opcion no valida");
+                            break;
+                    }
                     break;
+                   
                 }//case de modificar
                 case 3: {
                     for (int i = 0; i < equipos.size(); i++) {
@@ -401,8 +448,21 @@ public class Lab4_ClaudioHernandezDavidReyes {
 
     public static String imprimir(int j1, int j2) {
         int[] puntos = new int[equipos.get(j1).getJugadores().size()];
+        String[] nombres1 = new String[equipos.get(j1).getJugadores().size()];
+        String[] nombres2 = new String[equipos.get(j1).getJugadores().size()];
+
         int[] puntos2 = new int[equipos.get(j2).getJugadores().size()];
         int aux;
+        for (int i = 0; i < equipos.get(j1).getJugadores().size(); i++) {
+            puntos[i] = equipos.get(j1).getJugadores().get(i).puntos;
+                        nombres1[i] = equipos.get(j1).getJugadores().get(i).nombre;
+
+        }
+        for (int i = 0; i < equipos.get(j2).getJugadores().size(); i++) {
+            puntos2[i] = equipos.get(j2).getJugadores().get(i).puntos;
+                        nombres2[i] = equipos.get(j2).getJugadores().get(i).nombre;
+
+        }
         for (int i = 0; i < puntos.length - 1; i++) {
             for (int j = 0; j < puntos.length - i - 1; j++) {
                 if (puntos[j + 1] < puntos[j]) {
