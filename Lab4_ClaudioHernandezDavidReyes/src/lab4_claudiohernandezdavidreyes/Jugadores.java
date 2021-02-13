@@ -87,6 +87,10 @@ double stars;
     protected void setStars(double stars) {
         this.stars = stars;
     }
+    public boolean probabilidad(){
+    
+    return false;
+    }
 
     @Override
     public String toString() {
